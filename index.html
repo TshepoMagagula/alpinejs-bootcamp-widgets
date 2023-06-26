@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootcamp-Widgets</title>
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="greet.js"></script>
+    <script src="transportFee.js"></script>
+    <script src="expensiveItems.js"></script>
+    <script src="wordGame.js"></script>
+</head>
+<body>
+    <h1>AlpineJS widgets for Bootcamp functions</h1>
+    <div x-data="greet">
+        <h2>Greet Bootcamp Function</h2>
+        <div x-text="greeting"></div>
+        <input class="userName" x-model="name" type="text" placeholder="Enter your name">
+        <button @click="greet()">Greet Me</button>
+    </div>
+    <div x-data="transportFee">
+        <h2>TransportFee Bootcamp Function</h2>
+        <div>
+            <span>Transport Fee: </span>
+            <span x-text="returnMsg"></span>
+        </div>
+        <span>Enter Your Shift: </span>
+        <input type="text" placeholder="Enter your shift" x-model="shift">
+        <button @click="transportFee()">Transport Fee</button>
+    </div>
+    <div>
+        <h2>ExpensiveItems Bootcamp Function</h2>
+    </div>
+    <div>
+        <h2>WordGame Bootcamp Function</h2>
+    </div>
+</body>
+</html>
