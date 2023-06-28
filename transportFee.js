@@ -5,8 +5,11 @@ function transportFee(shift){
     else if(shift === "afternoon"){
       return "R10";
     }
+    else if(shift === "nightshift"){
+        return "free";
+    }
     else{
-      return "free";
+      alert ("A shift can only be 'morning', 'afternoon', or 'nightshift'.");
     }
 }
 

@@ -4,35 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bootcamp-Widgets</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <script src="//unpkg.com/alpinejs" defer></script>
     <script src="greet.js"></script>
     <script src="transportFee.js"></script>
-    <script src="expensiveItems.js"></script>
     <script src="wordGame.js"></script>
+    <script src="enoughAirtime.js"></script>
+
 </head>
 <body>
     <h1>AlpineJS widgets for Bootcamp functions</h1>
-    <div x-data="greet">
-        <h2>Greet Bootcamp Function</h2>
-        <div x-text="greeting"></div>
-        <input class="userName" x-model="name" type="text" placeholder="Enter your name">
-        <button @click="greet()">Greet Me</button>
-    </div>
-    <div x-data="transportFee">
-        <h2>TransportFee Bootcamp Function</h2>
-        <div>
-            <span>Transport Fee: </span>
-            <span x-text="returnMsg"></span>
+    <div class="row">
+        <div class="col">
+            <div class="greet" x-data="greet">
+                <h2>Greet Bootcamp Function</h2>
+                <div x-text="greeting" style="background-color:gray; font-weight: bolder;
+                margin-bottom: 1em; padding: 1em; border-radius: 0.5em; color: green;"></div>
+                <input class="userName" x-model="name" type="text" placeholder="Enter your name"
+                style="margin-bottom: 1em;">
+                <br>
+                <button @click="greet()">Greet Me</button>
+            </div>
         </div>
-        <span>Enter Your Shift: </span>
-        <input type="text" placeholder="Enter your shift" x-model="shift">
-        <button @click="transportFee()">Transport Fee</button>
+        <div class="col">
+            <div class="transportFee" x-data="transportFee">
+                <h2>TransportFee Bootcamp Function</h2>
+                <div style="margin-bottom: 1em;">
+                    <span>Transport Fee: </span>
+                    <span x-text="returnMsg" style="background-color:gray; font-weight: bolder;
+                     margin: 1em; padding: 0.2em; border-radius: 0.5em; color: green;"></span>
+                </div>
+                <span>which Shift? </span>
+                <input type="text" placeholder="Enter your shift" x-model="shift"
+                style="margin-top: 0.5em; margin-bottom: 1em;">
+                <br>
+                <button @click="transportFee()">Transport Fee</button>
+            </div>
+        </div>
     </div>
-    <div>
-        <h2>ExpensiveItems Bootcamp Function</h2>
+    <div class="row">
+        <div class="col">
+            <div class="enoughAirtime" x-data="{ usage: '', airtime: 0, 
+            remainingBalance: 0}">
+                <h2>EnoughAirtime Bootcamp Function</h2>
+                <div style="margin-bottom: 1em;">
+                    <span>Remaining Balance: </span>
+                    <span x-text="remainingBalance" style="background-color:gray; font-weight: bolder;
+                     margin: 1em; padding: 0.2em; border-radius: 0.5em; color: green;"></span>
+                </div>
+                <div>
+                    <span>Usage: </span>
+                <input type="text" placeholder="Enter your usage" x-model="usage"
+                style="margin-top: 0.5em; margin-bottom: 1em; width: 79%;">
+                </div>
+                <span>Amount: </span>
+                <input type="text" placeholder="Enter Airtime balance" x-model="airtime"
+                style="margin-top: 0.5em; margin-bottom: 1em;">
+                <br>
+                <button @click="remainingBalance=enoughAirtime(usage, airtime)">Get Remaining Balance</button>
+            </div>
+        </div>
+        <div class="col">
+            <div class="wordGame" x-data=" {  sentence: '',
+            longestWrd: '',
+            shortestWrd: '',
+            wrdLengths: 0 }">
+            <h2>WordGame Bootcamp Function</h2>
+            Enter Your Sentence: <input type="text" 
+            placeholder="Enter your sentence" x-model="sentence">
+            <div>
+                <div style="background-color:gray; font-weight: bolder; margin-bottom: 1em; 
+                padding: 0.5em; margin-top: 0.5em; border-radius: 0.5em; color: green;"
+                x-text="longestWrd"></div>
+                <button @click="longestWrd=longestWord(sentence)">Get Longest Word</button>
+            </div>
+            <div>
+                <div style="background-color:gray; font-weight: bolder; margin-bottom: 1em; 
+                padding: 0.5em; margin-top: 0.5em; border-radius: 0.5em; color: green;"
+                x-text="shortestWrd"></div>
+                <button @click="shortestWrd=shortestWord(sentence)">Get shortest Word</button>
+            </div>
+            <div>
+                <div style="background-color:gray; font-weight: bolder; margin-bottom: 1em; 
+                padding: 0.5em; margin-top: 0.5em; border-radius: 0.5em; color: green;"
+                 x-text="wrdLengths"></div>
+                <button @click="wrdLengths=wordLengths(sentence)">Get sum of words</button>
+            </div>   
+            </div>
+        </div>
     </div>
-    <div>
-        <h2>WordGame Bootcamp Function</h2>
-    </div>
+    
 </body>
 </html>
