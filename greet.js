@@ -14,5 +14,10 @@ document.addEventListener('alpine:init', () => {
 
 
 function greet(name) {
-    return "Hello, " + name;
+    if(isNaN(name)){
+        return "Hello, " + name;
+    }
+    else{
+        alert('Function cannot greet numbers.');
+    }
 }

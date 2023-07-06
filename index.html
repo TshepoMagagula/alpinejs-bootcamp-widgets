@@ -24,7 +24,13 @@
                 <input class="userName" x-model="name" type="text" placeholder="Enter your name"
                 style="margin-bottom: 1em;">
                 <br>
-                <button @click="greet()">Greet Me</button>
+                <button @click="greet();
+                setInterval(function(){
+                    if(greeting != ''){
+                        greeting='';
+                        name='';  
+                    }
+                }, 5000)">Greet Me</button>
             </div>
         </div>
         <div class="col">
@@ -39,7 +45,12 @@
                 <input type="text" placeholder="Enter your shift" x-model="shift"
                 style="margin-top: 0.5em; margin-bottom: 1em;">
                 <br>
-                <button @click="transportFee()">Transport Fee</button>
+                <button @click="transportFee(); setInterval(function(){
+                    if(returnMsg != ''){
+                        returnMsg='';
+                        shift=''; 
+                    } 
+                  }, 5000)">Transport Fee</button>
             </div>
         </div>
     </div>
@@ -62,7 +73,14 @@
                 <input type="text" placeholder="Enter Airtime balance" x-model="airtime"
                 style="margin-top: 0.5em; margin-bottom: 1em;">
                 <br>
-                <button @click="remainingBalance=enoughAirtime(usage, airtime)">Get Remaining Balance</button>
+                <button @click="remainingBalance=enoughAirtime(usage, airtime);
+                setInterval(function(){
+                    if(remainingBalance != 0){
+                        usage='';
+                        airtime=0;  
+                        remainingBalance=0;
+                    }
+                }, 5000)">Get Remaining Balance</button>
             </div>
         </div>
         <div class="col">
@@ -77,19 +95,27 @@
                 <div style="background-color:gray; font-weight: bolder; margin-bottom: 1em; 
                 padding: 0.5em; margin-top: 0.5em; border-radius: 0.5em; color: green;"
                 x-text="longestWrd"></div>
-                <button @click="longestWrd=longestWord(sentence)">Get Longest Word</button>
+                <button @click="longestWrd=longestWord(sentence);">Get Longest Word</button>
             </div>
             <div>
                 <div style="background-color:gray; font-weight: bolder; margin-bottom: 1em; 
                 padding: 0.5em; margin-top: 0.5em; border-radius: 0.5em; color: green;"
                 x-text="shortestWrd"></div>
-                <button @click="shortestWrd=shortestWord(sentence)">Get shortest Word</button>
+                <button @click="shortestWrd=shortestWord(sentence);">Get shortest Word</button>
             </div>
             <div>
                 <div style="background-color:gray; font-weight: bolder; margin-bottom: 1em; 
                 padding: 0.5em; margin-top: 0.5em; border-radius: 0.5em; color: green;"
                  x-text="wrdLengths"></div>
-                <button @click="wrdLengths=wordLengths(sentence)">Get sum of words</button>
+                <button @click="wrdLengths=wordLengths(sentence);
+                setInterval(function(){
+                    if(longestWrd != '' && shortestWrd != '' && wrdLengths != 0){
+                        sentence='';
+                        shortestWrd='';
+                        longestWrd='';
+                        wrdLengths=0;  
+                    }
+                }, 5000)">Get sum of words</button>
             </div>   
             </div>
         </div>
